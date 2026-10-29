@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment2</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background-color: #f5f5f5;
+      }
+
+      #header {
+        background-color: #ad5ac2;
+        color: rgb(255, 255, 255);
+        padding: 25px 20px;
+        text-align: center;
+      }
+
+      #header h1 {
+        font-size: 26px;
+        margin-bottom: 5px;
+      }
+
+      #header p {
+        font-size: 13px;
+      }
+
+      #menu {
+        background-color: #eeeeee;
+        border-bottom: 1px solid #dddddd;
+        padding: 10px 20px;
+      }
+
+      #menu ul {
+        display: flex;
+        list-style: none;
+        gap: 15px;
+        font-size: 13px;
+      }
+
+      #menu li {
+        color: #333;
+        cursor: pointer;
+      }
+
+      .content {
+        background-color: #ffffff;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 25px 35px;
+        gap: 40px;
+        border-bottom: 4px solid #eaeaea;
+      }
+
+      .content:last-of-type {
+        border-bottom: none;
+      }
+
+      .col,
+      .cor {
+        flex: 1;
+        min-width: 320px;
+      }
+
+      h2 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #000;
+      }
+
+      video {
+        width: 100%;
+        max-width: 480px;
+        aspect-ratio: 16 / 9;
+        background-color: black;
+        display: block;
+      }
+
+      .text-video {
+        font-size: 12px;
+        margin-top: 10px;
+        color: #444;
+        max-width: 480px;
+      }
+
+      canvas {
+        border: 1px solid #777;
+        background-color: #fff;
+      }
+      
+
+      img {
+        width: 450px;
+        height: auto;
+        display: block;
+      }
+
+      .image-section {
+        display: flex;
+        padding: 20px;
+        gap: 30px;
+      }
+
+      .left-box {
+        flex: 0 0 auto;
+      }
+
+      .right-box {
+        flex: 1;
+        padding-top: 32px;
+      }
+
+      .html5-info-box {
+        background-color: #e8ded2;
+        padding: 22px;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .html5-info-box h3 {
+        font-size: 15px;
+        margin-bottom: 6px;
+        color: #000;
+      }
+
+      .html5-info-box p {
+        font-size: 13px;
+        color: #222;
+        line-height: 1.4;
+      }
+
+      footer {
+        background-color: #ad5ac2;
+        color: #ffffff;
+        text-align: center;
+        padding: 20px;
+        font-size: 12px;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <div id="header">
+      <h1>Assignment #2</h1>
+      <p>Learning HTML5</p>
+    </div>
+
+    <!-- Bar menu -->
+    <div id="menu">
+      <ul>
+        <li>Home</li>
+        <li>Menu1</li>
+        <li>Menu2</li>
+        <li>Menu3</li>
+      </ul>
+    </div>
+
+    <!-- Video & Canvas -->
+    <section class="content">
+      <div class="col">
+        <h2>Video</h2>
+        <video controls autoplay muted>
+          <source src="./image/video_for_ass2.mp4" type="video/mp4" />
+          <source src="./image/video_for_ass2.webm" type="video/webm" />
+          Your browser doesn't support the video.
+        </video>
+        <p class="text-video">
+          HTML5 introduces semantic elements, multimedia support, and Canvas for
+          graphics.
+        </p>
+      </div>
+
+      <!-- Canvas -->
+      <div class="cor">
+        <h2>Canvas</h2>
+        <canvas id="myCan" width="150" height="80"></canvas>
+      </div>
+    </section>
+    
+
+    <!-- Image -->
+    <section class="content">
+      <div class="col">
+        <h2>Image</h2>
+        <div class="image">
+          <img src="./image/image_for_ass2.jpg" alt="Web Design Technology" />
+        </div>
+      </div>
+
+      <!-- blox html right -->
+      <div class="cor" style="display: flex; align-items: center">
+        <div class="html5-info-box">
+          <h3>HTML5</h3>
+          <p>
+            HTML5 is the latest version of the Hypertext Markup Language, which
+            is used to structure and present content on the web.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>683380036-4 Khorrawich IT Section 1</p>
+      <p>Copyright &copy; 2026</p>
+    </footer>
+  </body>
+</html>
