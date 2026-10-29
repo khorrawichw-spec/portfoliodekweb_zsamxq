@@ -1,1 +1,1686 @@
+* {
+    margin: 0;
+    padding: o;
+    font-family: "Kanit", sans-serif;
 
+}
+html {
+  scroll-behavior: smooth;
+}
+#Lab {
+  scroll-margin-top: 80px; /* ปรับตัวเลขตามความสูงของ Header ของคุณ */
+}
+
+.mitr-regular {
+    font-family: "Mitr", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.mitr-medium {
+    font-family: "Mitr", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.kanit-thin {
+    font-family: "Kanit", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.kanit-extralight {
+    font-family: "Kanit", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.kanit-light {
+    font-family: "Kanit", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.kanit-regular {
+    font-family: "Kanit", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.kanit-medium {
+    font-family: "Kanit", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.kanit-thin-italic {
+    font-family: "Kanit", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.kanit-extralight-italic {
+    font-family: "Kanit", sans-serif;
+    font-weight: 200;
+    font-style: italic;
+}
+
+.kanit-light-italic {
+    font-family: "Kanit", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.kanit-regular-italic {
+    font-family: "Kanit", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+
+/* Hogwarts — Clean White Magic */
+body {
+    margin: 0;
+    min-height: 100vh;
+    position: relative;
+    isolation: isolate;
+    overflow-x: hidden;
+
+    /* background:
+        radial-gradient(ellipse at 8% 12%,
+            rgba(165, 200, 245, 0.32),
+            transparent 32%),
+        radial-gradient(ellipse at 90% 15%,
+            rgba(185, 167, 245, 0.22),
+            transparent 30%),
+        radial-gradient(ellipse at 85% 85%,
+            rgba(201, 169, 110, 0.19),
+            transparent 30%),
+        radial-gradient(ellipse at 12% 88%,
+            rgba(116, 0, 1, 0.08),
+            transparent 28%),
+        radial-gradient(ellipse at 50% 55%,
+            rgba(26, 71, 42, 0.05),
+            transparent 40%),
+        #FFFFFF;
+
+    color: #172554; */
+    /* background-color: rgb(39, 183, 255); */
+
+}
+
+
+#magic-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+
+
+
+header {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 25px;
+
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.12),
+        inset 0 1px 1px rgba(255, 255, 255, 0.4);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 900px;
+    max-width: calc(100% - 40px);
+
+    margin: 20px auto;
+    padding: 10px 25px;
+    box-sizing: border-box;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 18px;
+    font-weight: 500;
+
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+.logo span {
+    white-space: nowrap;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.menu ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    list-style: none;
+}
+
+.menu a {
+    position: relative;
+    display: inline-block;
+
+    color: rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 400;
+
+    padding: 5px 8px;
+}
+
+
+
+.menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 2.5px;
+
+    background-color: var(--text-color, rgba(0, 0, 0, 0.6));
+
+    transform: scaleX(0);
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.menu a:hover::after,
+.menu a.active::after {
+    transform: scaleX(1);
+}
+
+
+
+.menu-toggle {
+    display: none;
+
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background: transparent;
+
+    cursor: pointer;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 2px;
+
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
+
+
+.menu-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+
+.container {
+    position: relative;
+
+    box-sizing: border-box;
+    padding: 75px 35px;
+
+    width: 900px;
+    max-width: calc(100% - 40px);
+    min-height: 500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    margin: 40px auto;
+    overflow: hidden;
+    isolation: isolate;
+    margin-bottom: 110px;
+}
+
+.container h1 {
+    max-width: 100%;
+    margin: 0 0 20px;
+    font-size: clamp(42px, 8vw, 120px);
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.container .description {
+    margin: 0;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.text-marquee {
+    width: 100%;
+    margin-top: 35px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: textLoop 30s linear infinite;
+    will-change: transform;
+}
+
+.marquee-group {
+    display: flex;
+    flex-shrink: 0;
+}
+
+.marquee-group span {
+    flex-shrink: 0;
+    padding-right: 30px;
+
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+@keyframes textLoop {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+
+
+.crad {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+
+    width: 900px;
+    max-width: calc(100% - 40px);
+    margin: 20px auto;
+
+    box-sizing: border-box;
+    margin-bottom: 300px;
+}
+
+
+/* .card-item {
+    min-width: 0;
+    min-height: 200px;
+    padding: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 25px;
+
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.12),
+        inset 0 1px 1px rgba(255, 255, 255, 0.4);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.card-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+} */
+
+
+
+
+/* ----------------------------------
+   ส่วนสำคัญ: ตัวจัดการ์ด 3 กล่องให้อยู่ตรงกลาง
+---------------------------------- */
+.card-container {
+    display: flex;
+    justify-content: center;
+    /* จัดให้อยู่ตรงกลางแนวระนาบ (ซ้าย-ขวา) */
+    align-items: center;
+    /* จัดให้อยู่ตรงกลางแนวตั้ง (บน-ล่าง) */
+    gap: 30px;
+    /* ระยะห่างระหว่างการ์ดแต่ละใบ */
+    flex-wrap: wrap;
+    /* รองรับมือถือ (เมื่อจอแคบการ์ดจะขึ้นบรรทัดใหม่) */
+    min-height: 90vh;
+    /* ให้ความสูงเต็มหน้าจอเพื่อจัดตรงกลางแนวตั้ง */
+    perspective: 1000px;
+    /* เพิ่มความลึก 3D ให้สมจริงเวลาหมุนการ์ด */
+}
+
+/* ----------------------------------
+   สไตล์ของการ์ดแต่ละใบ
+---------------------------------- */
+.card {
+    width: 300px;
+    height: 350px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease-in-out;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: rotateY(180deg);
+}
+
+.front-page,
+.back-page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+   
+  border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 25px;
+
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.12),
+        inset 0 1px 1px rgba(255, 255, 255, 0.4);
+    border-radius: 25px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.front-page {
+    
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: #333;
+    
+}
+
+.back-page {
+   background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: #333;
+    transform: rotateY(180deg);
+}
+
+/* 
+.back-page .card-info{
+       background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 30px 60px;
+    border-radius: 25px;
+} */
+
+.card-info p{
+    margin-bottom: 20px;
+   
+}
+
+.card-info a {
+    display: inline-block;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 5px 30px;
+    font-weight: 500;
+    border-radius: 18px;
+    text-decoration: none;
+    color:#333;
+    font-size: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-info a:hover{
+    transform: translateY(-5px);             
+    box-shadow: 0px 12px 20px rgba(116, 116, 116, 0.175);
+}
+
+.card-item h2 {
+
+    margin: 0;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.6);
+
+}
+
+
+.card-container1 {
+    display: flex;
+    justify-content: center;
+   
+    align-items: center;
+
+    gap: 30px;
+  
+    flex-wrap: wrap;
+  
+    perspective: 1000px;
+  
+    
+}
+.card-container1 {
+display: grid;
+    grid-template-columns: repeat(4, 1fr); /* บังคับแบ่งเป็น 4 คอลัมน์เท่ากัน */
+    gap: 30px; /* ระยะห่างระหว่างการ์ด */
+    max-width: 1200px; /* กำหนดความกว้างรวมของกรอบ (ปรับตามต้องการ) */
+    margin: 0 auto; /* จัดกรอบให้อยู่ตรงกลางหน้าจอ */
+    perspective: 1000px;
+}
+
+.container1 {
+    position: relative;
+
+    box-sizing: border-box;
+    padding: 75px 35px;
+    
+
+    width: 900px;
+    max-width: calc(100% - 40px);
+    min-height: 500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    margin: 40px auto;
+    overflow: hidden;
+    isolation: isolate;
+   
+}
+
+.container1 h1 {
+    max-width: 100%;
+    margin: 0 0 20px;
+    font-size: clamp(42px, 8vw, 120px);
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.container1 .description {
+    margin: 0;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+
+
+
+/* 1. ปล่อยให้ .front-page และ .card-info ทำงานตามสไตล์เดิมของคุณ */
+
+
+/* 2. สั่งลบ Padding และจัดทรง "เฉพาะกล่องที่มีรูปภาพ" เท่านั้น */
+.front-page:has(img) {
+    padding: 0 !important;   /* ลบ padding เฉพาะกล่องที่มีรูปภาพ เพื่อให้รูปชิดขอบ */
+    overflow: hidden;        /* ตัดขอบรูปให้โค้งตามมุมการ์ด */
+    display: flex;
+    flex-direction: column;
+}
+
+/* 3. จัดสัดส่วนรูปภาพ */
+.front-page .card-image,
+.front-page:has(img) .card-thumb {
+    width: 100%;
+    height: 250px; /* ปรับความสูงรูปภาพตามต้องการ */
+    margin: 0;
+}
+
+.front-page:has(img) img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* 4. เพิ่มระยะห่างข้อความเฉพาะกล่องที่มีรูปภาพ (เพื่อไม่ให้ตัวหนังสือชิดขอบ) */
+.front-page:has(img) .card-info {
+    padding: 15px;
+    flex: 1;
+}
+
+/* แถม: Responsive รองรับหน้าจอมือถือและแท็บเล็ต */
+@media (max-width: 1024px) {
+    .card-container1 {
+        grid-template-columns: repeat(2, 1fr); /* จอขนาดกลาง แสดงแถวละ 2 ใบ */
+    }
+}
+
+@media (max-width: 600px) {
+    .card-container1 {
+        grid-template-columns: 1fr; /* จอมือถือ แสดงแถวละ 1 ใบ */
+    }
+}
+/* 1. กำหนดโครงสร้างการ์ดหลักให้ยืดหยุ่นตาม Responsive */
+.card-container1 .card {
+    width: 100%;         /* ยืดขยายตามขนาดหน้าจอ */
+    max-width: 340px;    /* กำหนดขนาดกว้างสุด ไม่ให้ใหญ่จนเกินไป */
+    box-sizing: border-box;
+}
+
+/* 2. Responsive สำหรับหน้าจอมือถือ/แท็บเล็ต (ความกว้างน้อยกว่า 900px) */
+@media (max-width: 900px) {
+    .card-container1 {
+        grid-template-columns: 1fr; /* บังคับเรียงทีละ 1 แถว */
+        justify-items: center;      /* จัดการ์ดให้อยู่ตรงกลางหน้าจอ */
+        gap: 20px;                  /* ระยะห่างระหว่างการ์ดบน-ล่าง */
+        padding: 0 20px;            /* เว้นขอบซ้าย-ขวาไม่ให้ชิดขอบจอเกินไป */
+    }
+}
+
+:root {
+    --page-bg: #ffffff;
+
+}
+
+body {
+    background: var(--page-bg, #ffffff);
+    transition: background-color 0.3s ease;
+}
+
+.theme-picker {
+    list-style: none;
+}
+
+.theme-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 9px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.25);
+    color: #7675754c;
+
+    font-size: 18px;
+
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.theme-button:hover {
+    background: rgba(255, 255, 255, 0.75);
+}
+
+.theme-color-dot {
+    width: 14px;
+    height: 14px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    background: var(--page-bg, #ffffff);
+}
+
+#backgroundColorPicker {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+
+
+
+:root {
+    --page-bg: #ffffff;
+    --text-color: rgba(0, 0, 0, 0.6);
+    --muted-text-color: rgba(0, 0, 0, 0.6);
+    --border-color: rgba(0, 0, 0, 0.15);
+}
+
+body {
+    background-color: var(--page-bg);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+p,
+.logo,
+.menu a,
+footer p,
+.container h1,
+.marquee-group span,
+p.description,
+.card-item h2 {
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.container p.description {
+    color: var(--text-color, rgba(0, 0, 0, 0.6));
+    transition: color 0.3s ease;
+}
+
+
+.description,
+.marquee-track span {
+    color: var(--muted-text-color);
+}
+
+header,
+footer,
+.card-item {
+    border-color: var(--border-color);
+}
+
+footer p {
+    color: var(--text-color, rgba(0, 0, 0, 0.6));
+    transition: color 0.3s ease;
+}
+
+.theme-button {
+    color: var(--text-color, rgba(0, 0, 0, 0.6));
+    transition:
+        color 0.3s ease,
+        background 0.3s ease;
+}
+
+.theme-button .theme-color-dot {
+    background-color: var(--page-bg, #ffffff);
+}
+
+
+/* ===================================================
+   GLASSMORPHISM & CENTERED LAYOUT
+   =================================================== */
+
+/* 1. จัดส่วนแม่ (.about-section) ให้อยู่ตรงกลางหน้าจอพอดี */
+.about-section {
+    width: 100%;
+    min-height: calc(100vh - 140px); /* ดึงความสูงให้เต็มหน้าจอเพื่อจัดกลางแนวตั้ง */
+    display: flex;
+    justify-content: center; /* จัดกลางแนวระนาบ */
+    align-items: center;     /* จัดกลางแนวตั้ง */
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.card-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+/* 2. กล่องแม่สไตล์กระจกฝ้าแบบใส (Glass Main Card) */
+.card-main {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    
+    /* เอฟเฟกต์ Glassmorphism แบบใสเห็นพื้นหลัง */
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    
+    /* ขอบสะท้อนแสงกระจก */
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 30px;
+    
+    /* เงามีมิติ */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08),
+                inset 0 1px 2px rgba(255, 255, 255, 0.8);
+    
+    color: #2d3748;
+    overflow: hidden;
+}
+
+/* ---------------- ฝั่งซ้าย (MAIN 1) ---------------- */
+.main-1 {
+    flex: 1;
+    min-width: 340px;
+    background: rgba(255, 255, 255, 0.15); /* ชั้นกระจกซ้อนฝั่งซ้าย */
+    padding: 45px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* 3. ขยายรูปโปรไฟล์ให้ใหญ่ขึ้น (จากเดิม 160px เป็น 210px) */
+.profile-frame {
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid rgba(255, 255, 255, 0.9);
+    margin-bottom: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.profile-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.profile-name {
+    font-size: 1.55rem;
+    font-weight: 700;
+    margin: 0 0 6px 0;
+    color: #1a202c;
+}
+
+.profile-tagline {
+    font-size: 0.95rem;
+    color: #4a5568;
+    margin: 0 0 20px 0;
+}
+
+.badge-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 25px;
+    width: 100%;
+    align-items: center;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.45);
+    color: #2d3748;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-btn {
+    padding: 10px 24px;
+    border-radius: 20px;
+    background: #2563eb;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+    transition: all 0.2s ease;
+}
+
+.social-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+/* ---------------- ฝั่งขวา (MAIN 2) ---------------- */
+.main-2 {
+    flex: 1.6;
+    padding: 45px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 26px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    margin: 0 0 12px 0;
+    color: #2563eb;
+    border-bottom: 2px solid rgba(37, 99, 235, 0.15);
+    padding-bottom: 6px;
+}
+
+.bio-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 0;
+    color: #374151;
+}
+
+/* กล่องตารางข้อมูลย่อยสไตล์กระจก */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.info-box {
+    background: rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 16px 20px;
+    border-radius: 16px;
+    transition: all 0.2s ease;
+}
+
+.info-box:hover {
+    background: rgba(255, 255, 255, 0.55);
+    transform: translateY(-2px);
+}
+
+.info-label {
+    font-size: 0.75rem;
+    color: #6b7280;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 4px;
+}
+
+.info-value {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+/* แท็กทักษะ */
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+    background: rgba(255, 255, 255, 0.45);
+    color: #1f2937;
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    transition: all 0.2s ease;
+}
+
+.tag:hover {
+    background: #ffffff;
+    color: #2563eb;
+    transform: translateY(-2px);
+}
+/* ===================================================
+   SKILLS SECTION CATEGORIZED STYLES
+   =================================================== */
+
+.skills-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* หัวข้อหมวดหมู่ทักษะย่อย */
+.skill-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.skill-category {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #2563eb; /* สีเน้นย้ำหมวดหมู่ */
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    opacity: 0.9;
+}
+
+/* แท็กทักษะพร้อมไอคอน */
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    background: rgba(255, 255, 255, 0.45);
+    color: #1f2937;
+    padding: 6px 14px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+    transition: all 0.2s ease;
+}
+
+.tag i {
+    font-size: 0.95rem;
+    color: #2563eb;
+}
+
+.tag:hover {
+    background: #ffffff;
+    color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+/* สไตล์เริ่มต้นของการ์ดก่อนเลื่อนมาถึง (ซ่อนและเลื่อนลงต่ำ) */
+.reveal-card {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* สไตล์เมื่อเลื่อนมาถึงแล้ว (แสดงผลและลอยขึ้นตำแหน่งเดิม) */
+.reveal-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* จัดโครงสร้างให้อยู่ตรงกลาง */
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    width: 100%;
+}
+
+/* ตัวกล่องกระจกฝ้าใหญ่กล่องเดียว (สไตล์เดียวกับหน้า About) */
+.card-main {
+    width: 100%;
+    max-width: 900px;
+    min-height: 400px; /* ความสูงเริ่มต้น */
+    background: rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 24px;
+    padding: 40px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    color: #1f2937;
+}
+
+/* ---------------- RESPONSIVE (มือถือ) ---------------- */
+@media (max-width: 868px) {
+    .card-main {
+        flex-direction: column;
+    }
+
+    .main-1 {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 35px 20px;
+    }
+
+    .main-2 {
+        padding: 35px 20px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* ตั้งค่าการเปลี่ยนความสว่างให้ละมุน */
+.profile-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.5s ease-in-out; /* เอฟเฟกต์ค่อยๆ จาง */
+    opacity: 1;
+}
+
+/* คลาสชั่วคราวสำหรับช่วงสลับรูป */
+.profile-frame img.fade-out {
+    opacity: 0;
+}
+/* จัดวางปุ่มไอคอนให้อยู่ตรงกลางเรียงแถวเดียวกัน */
+.social-links {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* ปุ่มวงกลมสไตล์กระจกฝ้า */
+.social-icon-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    
+    /* สไตล์กระจกฝ้าใส */
+    background: rgba(255, 255, 255, 0.45);
+    color: #2563eb; /* สีไอคอนน้ำเงิน */
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.25rem;
+    
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.25s ease;
+}
+
+/* เอฟเฟกต์เวลาเอาเมาส์ไปชี้ (Hover) */
+.social-icon-btn:hover {
+    background: #2563eb;
+    color: #ffffff;
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+}
+
+/* ===================================================
+   LESSON CARD & GLASSMORPHISM STYLES
+   =================================================== */
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    width: 100%;
+}
+
+/* กล่องกระจกฝ้าหลัก */
+.card-main.lesson-card {
+    width: 100%;
+    max-width: 900px;
+    background: rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 24px;
+    padding: 48px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-main.lesson-card:hover {
+    box-shadow: 0 16px 48px rgba(37, 99, 235, 0.12);
+}
+
+/* การจัดระยะห่างและการอ่านข้อความ */
+.lesson-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.lesson-content p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: #2d3748;
+    text-indent: 2rem; /* ย่อหน้าวรรคแรกของทุกย่อหน้า */
+    text-align: justify;
+    word-break: break-word;
+}
+
+/* ===================================================
+   RESPONSIVE DESIGN (หน้าจอมือถือและแท็บเล็ต)
+   =================================================== */
+
+/* แท็บเล็ต (หน้าจอต่ำกว่า 768px) */
+@media (max-width: 768px) {
+    .card-container {
+        padding: 20px 15px;
+    }
+
+    .card-main.lesson-card {
+        padding: 32px 24px;
+        border-radius: 20px;
+    }
+
+    .lesson-content p {
+        font-size: 1rem;
+        line-height: 1.75;
+        text-indent: 1.5rem;
+    }
+}
+
+/* มือถือ (หน้าจอต่ำกว่า 480px) */
+@media (max-width: 480px) {
+    .card-main.lesson-card {
+        padding: 24px 18px;
+        border-radius: 16px;
+    }
+
+    .lesson-content p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        text-indent: 1.2rem;
+        text-align: left; /* สลับกลับเป็นชิดซ้ายบนหน้าจอเล็กเพื่อให้อ่านง่าย */
+    }
+}
+/* ===================================================
+   RESPONSIVE DESIGN (HOME PAGE)
+   =================================================== */
+
+/* โครงสร้างการจัดวางการ์ดพื้นฐาน (Desktop) */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+/* ---------------------------------------------------
+   1. แท็บเล็ตและหน้าจอขนาดกลาง (Width <= 992px)
+   --------------------------------------------------- */
+@media (max-width: 992px) {
+    .container h1 {
+        font-size: 2.5rem;
+    }
+
+    .description {
+        font-size: 1.1rem;
+    }
+
+    /* ปรับการ์ดเหลือ 2 คอลัมน์ หรือปรับระยะห่างให้พอดี */
+    .card-container {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .card {
+        min-height: 280px;
+    }
+}
+
+/* ---------------------------------------------------
+   2. แท็บเล็ตแนวตั้งและมือถือจอใหญ่ (Width <= 768px)
+   --------------------------------------------------- */
+@media (max-width: 768px) {
+    /* Header & Navigation Menu */
+    header {
+        padding: 15px 20px;
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    .menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background-color: #1f2937;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    /* เมนูด้านบนแปลงเป็น Glassmorphism Overlay บนมือถือ */
+    .menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 999;
+    }
+
+    .menu.active {
+        right: 0;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .menu ul li a {
+        font-size: 1.2rem;
+    }
+
+    /* Content & Marquee */
+    .container {
+        padding: 0 15px;
+    }
+
+    .container h1 {
+        font-size: 2.2rem;
+    }
+
+    .text-marquee {
+        font-size: 0.85rem;
+    }
+
+    /* Cards เรียงเป็นกล่องเดี่ยวแนวตั้ง */
+    .card-container {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+
+    .card {
+        min-height: 240px;
+    }
+}
+
+/* ---------------------------------------------------
+   3. มือถือหน้าจอเล็ก (Width <= 480px)
+   --------------------------------------------------- */
+@media (max-width: 480px) {
+    .container h1 {
+        font-size: 1.8rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+
+    .card-container {
+        gap: 16px;
+        padding: 15px 10px;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+    }
+
+    .card-subtitle {
+        font-size: 0.9rem;
+    }
+
+    footer p {
+        font-size: 0.85rem;
+    }
+}
+/* ===================================================
+   CENTERED CARD CONTAINER STYLES
+   =================================================== */
+
+/* คอนเทนเนอร์หลักสำหรับจัดกล่องให้อยู่ตรงกลาง */
+.card-container {
+    display: flex;
+    justify-content: center; /* จัดกล่องให้อยู่ตรงกลางแนวนอน */
+    align-items: center;     /* จัดกล่องให้อยู่ตรงกลางแนวตั้ง */
+    flex-wrap: wrap;         /* รองรับมือถือ: เมื่อจอแคบลง กล่องจะตัดลงมาบรรทัดใหม่ให้อัตโนมัติ */
+    gap: 30px;               /* ระยะห่างระหว่างกล่อง */
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;          /* จัดคอนเทนเนอร์ให้อยู่กลางหน้าจอ */
+    padding: 40px 20px;
+}
+
+/* กำหนดขนาดกล่องการ์ดแต่ละใบ */
+.card {
+    width: 300px;            /* ความกว้างของแต่ละกล่อง */
+    height: 380px;           /* ความสูงของแต่ละกล่อง */
+    flex-shrink: 0;          /* ป้องกันกล่องโดนบีบเบี้ยว */
+}
+
+/* ---------------------------------------------------
+   RESPONSIVE DESIGN (ปรับขนาดสำหรับหน้าจอเล็ก)
+   --------------------------------------------------- */
+@media (max-width: 768px) {
+    .card-container {
+        gap: 20px;
+        padding: 20px 15px;
+    }
+
+    .card {
+        width: 100%;          /* บนมือถือให้กล่องขยายเต็มความกว้าง */
+        max-width: 340px;     /* แต่ไม่เกิน 340px เพื่อความสวยงาม */
+        height: 320px;
+    }
+}
+/* ===================================================
+   LESSON PAGE CENTERED GLASSMORPHISM CARD
+   =================================================== */
+
+/* คอนเทนเนอร์คุมการจัดตำแหน่งให้อยู่ตรงกลางหน้าจอ */
+section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+    align-items: center;     /* จัดให้อยู่ตรงกลางแนวตั้ง */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;          /* วางกึ่งกลางหน้าจอ */
+    padding: 30px 20px;
+    box-sizing: border-box;
+}
+
+/* กล่องกระจกฝ้าหน้า Lesson */
+.card-main.lesson-card {
+    width: 100%;
+    max-width: 900px;        /* ความกว้างสูงสุดของกล่อง */
+    margin: 0 auto;          /* การันตีให้อยู่ตรงกลาง */
+    background: rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 24px;
+    padding: 48px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-main.lesson-card:hover {
+    box-shadow: 0 16px 48px rgba(37, 99, 235, 0.12);
+}
+
+/* การจัดรูปแบบเนื้อหาข้อความข้างใน */
+.lesson-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.lesson-content p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: #2d3748;
+    text-indent: 2rem;
+    text-align: justify;
+    word-break: break-word;
+}
+
+/* ---------------------------------------------------
+   RESPONSIVE DESIGN (สำหรับหน้าจอเล็ก)
+   --------------------------------------------------- */
+@media (max-width: 768px) {
+    .card-container {
+        padding: 20px 15px;
+    }
+
+    .card-main.lesson-card {
+        padding: 32px 20px;
+        border-radius: 20px;
+    }
+
+    .lesson-content p {
+        font-size: 1rem;
+        line-height: 1.75;
+        text-indent: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-main.lesson-card {
+        padding: 24px 16px;
+        border-radius: 16px;
+    }
+
+    .lesson-content p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        text-indent: 1rem;
+        text-align: left;
+    }
+}
+
+
+
+
+
+
+footer {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 25px;
+
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.12),
+        inset 0 1px 1px rgba(255, 255, 255, 0.4);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    width: 900px;
+    max-width: calc(100% - 40px);
+
+    margin: 20px auto;
+    padding: 10px 25px;
+    box-sizing: border-box;
+
+}
+
+footer p {
+    position: relative;
+
+    color: rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+
+    padding: 10px 8px;
+    text-align: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+        animation: none;
+    }
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+    header {
+        width: calc(100% - 40px);
+        max-width: none;
+
+        margin: 20px auto;
+        padding: 10px 15px;
+
+        justify-content: flex-end;
+        position: relative;
+    }
+
+
+    .menu-toggle {
+        display: flex;
+    }
+
+
+
+    .menu {
+        display: none;
+
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 20px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+        z-index: 100;
+    }
+
+
+
+    .menu.open {
+        display: block;
+    }
+
+
+
+    .menu ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .menu li {
+        display: block;
+    }
+
+    .menu a {
+        font-size: 20px;
+        padding: 8px 10px;
+    }
+}
+
+
+
+
+@media screen and (max-width: 480px) {
+
+    header {
+        width: calc(100% - 24px);
+
+        margin: 15px auto;
+        padding: 8px 12px;
+
+        border-radius: 20px;
+    }
+
+    .menu-toggle {
+        width: 36px;
+        height: 36px;
+    }
+
+    .menu {
+        top: calc(100% + 8px);
+        padding: 12px;
+    }
+
+    .menu ul {
+        gap: 12px;
+    }
+
+    .menu a {
+        font-size: 18px;
+        padding: 8px 10px;
+    }
+
+
+
+}
