@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ASS01</title>
+  </head>
+
+  <body>
+    <!-- ครอบทั้งหน้า ปล.ให้เต็มหน้าจอ -->
+    <div
+      id="container"
+      style="
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+      "
+    >
+      <!-- Header เอาไว้ควบคุมส่วนหัวของเว็บจ้า -->
+      <div
+        id="header"
+        style="
+          background-color: #2b5f2b;
+          padding: 10px 15px;
+          font-size: 28px;
+          font-weight: bold;
+          color: bisque;
+        "
+      >
+        Web Design Technologies
+      </div>
+
+      <!-- content เนื้อหาภายในเว็บบบบบ -->
+      <div
+        id="content-wrapper"
+        style="display: flex; flex: 1; background-color: #bef3be"
+      >
+        <!-- กำหนดให้เป็นแถบเมนูด้านข้างฝั่งซ้ายน๊าา -->
+        <div
+          id="sidebar"
+          style="
+            background-color: #4b884b;
+            width: 120px;
+            padding: 10px;
+            line-height: 1.5;
+          "
+        >
+          <span style="color: bisque">
+            <strong>menu</strong><br />
+            Page1<br />
+            Page2<br />
+            Page3<br />
+            Page4<br /><br />
+            Contents
+          </span>
+        </div>
+
+        <!-- แถบเนื้อหาฝั่งขวามือ กว้างหน่อย -->
+        <div id="content" style="flex: 1; padding: 20px">
+          <ul>
+            <li>Yourname</li>
+            <li>StudentID</li>
+            <li>Section</li>
+          </ul>
+
+          <div
+            id="table-container"
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              margin-top: 20px;
+            "
+          >
+            <h2>Point Of Web Design</h2>
+
+            <table style="border-collapse: collapse">
+              <tr>
+                <th style="border: 1px solid black; padding: 3px 15px">
+                  First Name
+                </th>
+                <th style="border: 1px solid black; padding: 3px 15px">
+                  Last Name
+                </th>
+                <th style="border: 1px solid black; padding: 3px 15px">
+                  Point
+                </th>
+              </tr>
+
+              <tr>
+                <td style="border: 1px solid black">Sam</td>
+                <td style="border: 1px solid black">Khorrawich</td>
+                <td style="border: 1px solid black">50</td>
+              </tr>
+
+              <tr>
+                <td style="border: 1px solid black">Piknik</td>
+                <td style="border: 1px solid black">Nicha</td>
+                <td style="border: 1px solid black">75</td>
+              </tr>
+
+              <tr>
+                <td style="border: 1px solid black">Fon</td>
+                <td style="border: 1px solid black">Rainy</td>
+                <td style="border: 1px solid black">85</td>
+              </tr>
+
+              <tr>
+                <td style="border: 1px solid black">Windy</td>
+                <td style="border: 1px solid black">Suksabai</td>
+                <td style="border: 1px solid black">90</td>
+              </tr>
+            </table>
+          </div>
+
+          <!-- รูปภาพโลโก้ google -->
+           <!--   <img
+            id="google-logo"
+            style="width: 220px; margin-top: 40px; margin-left: 20px"
+            src="googlelogo.png"
+            alt="Google Logo"
+          /> -->
+        
+           <img id="google-logo"
+            src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+            alt="Google Logo"
+            style="margin-top:50px; width:200px;">
+        </div>
+      </div>
+
+      <!-- ผู้จัดทำ -->
+      <div
+        id="footer"
+        style="
+          background-color: #2b5f2b;
+          text-align: center;
+          padding: 5px;
+          font-size: 18px;
+        "
+      >
+        <span style="color: aliceblue">
+          Copyright &copy; 2026 Khorrawich IT Section 1
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
