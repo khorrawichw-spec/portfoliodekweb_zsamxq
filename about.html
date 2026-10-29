@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABOUT | PORTFOLIO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100&family=Mitr:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="script.js" defer></script>
+    <link rel="icon" type="image/png" href="./image/logo-web.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <canvas id="magic-canvas" aria-hidden="true"></canvas>
+
+    <header>
+        <a href="home.html" class="logo">
+            <span>PORTFOLIO</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="menu">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="works.html">Works</a></li>
+                <li><a href="lesson.html">Lesson</a></li>
+                <li class="theme-picker">
+                    <button type="button" id="openColorPicker" class="theme-button">
+                        <span class="theme-color-dot"></span>
+                        color
+                    </button>
+                    <input type="color" id="backgroundColorPicker" value="#ffffff" aria-label="เลือกสีพื้นหลังเว็บไซต์">
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>ABOUT</h1>
+            <p class="description">เกี่ยวกับฉัน</p>
+
+            <div class="text-marquee">
+                <div class="marquee-track">
+                    <div class="marquee-group">
+                        <span> PORTFOLIO • WEB DESIGN TECHNOLOGIES • 2026 </span>
+                        <span> PORTFOLIO • WEB DESIGN TECHNOLOGIES • 2026 </span>
+                        <span> PORTFOLIO • WEB DESIGN TECHNOLOGIES • 2026 </span>
+                        <span> PORTFOLIO • WEB DESIGN TECHNOLOGIES • 2026 </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="about-section">
+        <div class="card-container">
+            <div class="card-main">
+
+                <!-- ฝั่งซ้าย: โปรไฟล์และลิงก์ติดต่อ -->
+                <div class="main-1">
+                    <div class="profile-frame">
+                        <img src="./image/image_me1.jpg" alt="Khorrawich Wongsanao">
+                    </div>
+                    <h2 class="profile-name">Khorrawich Wongsanao</h2>
+                    <p class="profile-tagline">Web Developer & UI/UX Learner</p>
+
+                    <div class="badge-list">
+                        <span class="badge">College of Computing</span>
+                        <span class="badge">Khon Kaen University</span>
+                    </div>
+
+                    <div class="social-links">
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/korawit.wongsanao/?locale=th_TH" target="_blank"
+                            class="social-icon-btn" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/zsamxq/" target="_blank" class="social-icon-btn"
+                            aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+
+                        <!-- Email -->
+                        <a href="mailto:khorrawich.w@kkumail.com" class="social-icon-btn" aria-label="Email">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+
+                        <!-- GitHub -->
+                        <a href="https://github.com/khorrawichw-spec" target="_blank" class="social-icon-btn"
+                            aria-label="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ฝั่งขวา: ประวัติ ทักษะ และรายละเอียด -->
+                <div class="main-2">
+                    <div class="bio-section">
+                        <h3 class="section-subtitle">BIOGRAPHY</h3>
+                        <p class="bio-text">
+                            สวัสดีครับ ผมกำลังศึกษาอยู่ชั้นปีที่ 2 วิทยาลัยการคอมพิวเตอร์ มหาวิทยาลัยขอนแก่น
+                            มีความสนใจในการพัฒนาเว็บไซต์ Front-end Development, Web Design และการออกแบบประสบการณ์ผู้ใช้
+                            (UI/UX)
+                        </p>
+                    </div>
+
+                    <div class="info-grid">
+                        <div class="info-box">
+                            <span class="info-label">สาขา</span><br>
+                            <span class="info-value">เทคโนโลยีสารสนเทศ</span>
+                        </div>
+                        <div class="info-box">
+                            <span class="info-label">มหาวิทยาลัย</span><br>
+                            <span class="info-value">มหาวิทยาลัยขอนแก่น</span>
+                        </div>
+                        <div class="info-box">
+                            <span class="info-label">สถานที่</span><br>
+                            <span class="info-value">ขอนแก่น, ประเทศไทย</span>
+                        </div>
+                        <div class="info-box">
+                            <span class="info-label">มุ่งเน้น</span><br>
+                            <span class="info-value">Web Design & Tech</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-section">
+                        <h3 class="section-subtitle">SKILLS & TECHNOLOGIES</h3>
+                        <div class="skill-tags">
+                            <span class="tag"><i class="fa-solid fa-palette"></i> UI/UX Design</span>
+                            <span class="tag"><i class="fa-brands fa-figma"></i> Figma</span>
+                            <span class="tag"><i class="fa-brands fa-html5"></i> HTML5</span>
+                            <span class="tag"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+                            <span class="tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+                            <span class="tag"><i class="fa-brands fa-react"></i> React JS</span>
+                            <span class="tag"><i class="fa-brands fa-bootstrap"></i> Bootstrap</span>
+                            <span class="tag"><i class="fa-solid fa-gamepad"></i> Construct 2</span>
+                            <span class="tag"><i class="fa-solid fa-gamepad"></i> Construct 3</span>
+                         
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Khorrawich Wongsanao</p>
+    </footer>
+</body>
+
+</html>
